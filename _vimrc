@@ -30,8 +30,10 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"".01"""""""""""PLUGINS"""""""""""""""""""""""""""""""
-"	Plugins_I: {{{
+
+""*.01*"""""""""PLUGINS"""""""""""""""""""""""""""""""
+"	Plugins_I: 
+"	{{{
 "	
 "	|usr_05.4.txt|  vim help to add a package
 " 	vim8 only:
@@ -81,14 +83,14 @@
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins_C: {{{
+"	Plugins_C: 
+" {{{ 
 
 " Enable filetype plugins are commented out as vim-plug takes care of it in
 " plug#begin
 "
 " filetype plugin on
 " filetype indent on
-" filetype off "per Vundle
 " set nocompatible    
 
 
@@ -101,29 +103,27 @@ endif
 call plug#begin('~/vimfiles/') "required line
 " Add plugins below
 
-"	Plug 'whatyouhide/vim-gotham'
+" Plug 'whatyouhide/vim-gotham'
 
-"	Plug 'https://github.com/xolox/vim-easytags'
-", has('nvim') ? {} : { 'on': [] } 
+	Plug 'https://github.com/xolox/vim-easytags', has('nvim') ? {} : { 'on': [] } 
 
-"	Plug 'https://github.com/xolox/vim-misc'
-" , has('nvim') ? {} : { 'on': [] } 
+	Plug 'https://github.com/xolox/vim-misc', has('nvim') ? {} : { 'on': [] } 
 
 
 "	May not need so we'll see 
-"	Plug 'vim-scripts/ScrollColors'
+	Plug 'vim-scripts/ScrollColors'
  
-"	Plug 'https://github.com/easymotion/vim-easymotion'
+	Plug 'https://github.com/easymotion/vim-easymotion'
 
-"	Plug 'https://github.com/scrooloose/syntastic'
+	Plug 'https://github.com/scrooloose/syntastic'
 
 
 "Not sure about this one
 "	Plug 'scrooloose/nerdcommenter'
 
-"	Plug 'https://github.com/vim-scripts/undofile.vim'
+	Plug 'https://github.com/vim-scripts/undofile.vim'
 
-"	Plug 'https://github.com/ajh17/VimCompletesMe'
+	Plug 'https://github.com/ajh17/VimCompletesMe'
 
 "	Prolly dont need
 "	Plug  'https://github.com/vim-scripts/colorscheme_template.vim' 
@@ -131,21 +131,23 @@ call plug#begin('~/vimfiles/') "required line
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required line
-" }}}
+" 
+"	}}}
 
 
-"".02"""""""""""GENERAL"""""""""""""""""""""""""""""""
+""*.02*"""""""""GENERAL"""""""""""""""""""""""""""""""
 "	General_I:
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	General_C: {{{
+"	General_C:
+"	{{{
 
-" For linux{{{
+" For linux
 " runtime path so vim searches the .vim/
 "	runtime! plugin/**/*.vim
-" }}}
+" 
 
-	set runtimepath=~/vimfiles/
+"	set runtimepath=~/vimfiles/
 
 " Sets how many lines of history VIM has to remember
 	set history=1000
@@ -232,12 +234,13 @@ call plug#end()            " required line
 	set novisualbell
 	set t_vb=
 	set tm=500
+"	
 "	}}}
 
 
-"".03"""""""""""TAGS""""""""""""""""""""""""""""""""""
-"	Tags_I: {{{
-"	 
+""*.03*"""""""""TAGS""""""""""""""""""""""""""""""""""
+"	Tags_I: 
+"	{{{ 
 
  "place a mark in a file with mx and jump to that position with `x "
 
@@ -277,7 +280,8 @@ call plug#end()            " required line
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Tags_C: {{{
+"	Tags_C:
+"	{{{ 
 
 "	If you want to highlight all the tags in your file, you can use the following
 "mappings.
@@ -306,11 +310,13 @@ call plug#end()            " required line
 	vnoremap <A-LeftMouse> <C-o>:tnext
 	cnoremap <A-LeftMouse> <C-o>:tnext
 	inoremap <A-LeftMouse> <C-o>:tnext
+"	
 "	}}}
 
 
-"".04"""""""""""COLORS_FONT_SIZE""""""""""""""""""""""
-"	Colors_Font_Size_I:  {{{
+""*.04*"""""""""COLORS_FONT_SIZE""""""""""""""""""""""
+"	Colors_Font_Size_I:  
+"	{{{
 "	 
 " 	Good website for color options in hex
 "	colors pagehttp://www.color-hex.com/color/8b5064 
@@ -382,7 +388,8 @@ call plug#end()            " required line
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Color_Font_Size_C: {{{
+"	Color_Font_Size_C:	
+"	{{{ 
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -427,7 +434,7 @@ endif
 "	http://vim.wikia.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
 
 function! InsertStatuslineColor(mode)
-"  {{{
+"  
   if a:mode == 'i'
     hi statusline guibg=#3c7889
 	hi lineNr guibg=#3c7889
@@ -437,7 +444,7 @@ function! InsertStatuslineColor(mode)
   else
     hi statusline guibg=red
   endif
-"  }}}
+"  
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
@@ -452,124 +459,133 @@ au InsertLeave * hi lineNr guibg=#334444
 "		 window with same info, not entirely clear
 
 
-" Terminal window - color scheme Settings
-" {{{
-
-"Terminal, simplified color, 16bit
-hi Normal       term=NONE cterm=NONE ctermfg=LightGray   ctermbg=Black
-hi NonText      term=NONE cterm=NONE ctermfg=Brown       ctermbg=Black
-hi Function     term=NONE cterm=NONE ctermfg=DarkCyan    ctermbg=Black
-hi Statement    term=BOLD cterm=BOLD ctermfg=DarkBlue    ctermbg=Black
-hi Special      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
-hi SpecialChar  term=NONE cterm=NONE ctermfg=Cyan        ctermbg=Black
-hi Constant     term=NONE cterm=NONE ctermfg=Blue        ctermbg=Black
-hi Comment      term=NONE cterm=NONE ctermfg=DarkGray    ctermbg=Black
-hi Preproc      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
-hi Type         term=NONE cterm=NONE ctermfg=DarkMagenta ctermbg=Black
-hi Identifier   term=NONE cterm=NONE ctermfg=Cyan        ctermbg=Black
-hi StatusLine   term=BOLD cterm=NONE ctermfg=Yellow      ctermbg=DarkBlue
-hi StatusLineNC term=NONE cterm=NONE ctermfg=Black       ctermbg=Gray
-hi Visual       term=NONE cterm=NONE ctermfg=White       ctermbg=DarkCyan
-hi Search       term=NONE cterm=NONE ctermbg=Yellow      ctermfg=DarkBlue
-hi VertSplit    term=NONE cterm=NONE ctermfg=Black       ctermbg=Gray
-hi Directory    term=NONE cterm=NONE ctermfg=Green       ctermbg=Black
-hi WarningMsg   term=NONE cterm=NONE ctermfg=Blue        ctermbg=Yellow
-hi Error        term=NONE cterm=NONE ctermfg=DarkRed     ctermbg=Gray
-hi Cursor                            ctermfg=Black       ctermbg=Cyan
-hi LineNr       term=NONE cterm=NONE ctermfg=Red         ctermbg=Black
-" }}}
-"	end terminal window settings
+"	if gvim is available use gui color scheme, else if term with limited
+"	colors run on limited pallette
+" if has("gui_runing")
+	" GUI Color Scheme settings
+	" 
+	"	defines cursor behavior
+	set guicursor+=i:ver40-icursor
 
 
-" GUI Color Scheme settings
-" {{{
-"	defines cursor behavior
-set guicursor+=i:ver40-icursor
+	hi Normal      	gui=NONE		guifg=#fbcce7		guibg=#110022
+	hi boolean      gui=BOLD		guifg=#bf94e4
+
+	hi NonText     	gui=NONE		guifg=#ff9999		guibg=#444444
+	hi Function    	gui=NONE		guifg=#7788ff		guibg=#110022
+	hi Statement   	gui=BOLD		guifg=#b8860b		guibg=#110022
+	hi label		gui=BOLD		guifg=#b8860b		guibg=#110022
+
+	hi Special     	gui=NONE		guifg=Cyan			guibg=#110022
+	hi Constant    	gui=NONE		guifg=#a09aab		guibg=#110022
+	hi Comment     	gui=NONE		guifg=#d19fe8		guibg=#110022
+	hi Preproc     	gui=NONE		guifg=#33ff66		guibg=#110022
+	hi Type        	gui=NONE		guifg=#73b6c7		guibg=#110022
+	hi Identifier  	gui=NONE		guifg=Cyan			guibg=#110022
+	hi StatusLine  	gui=NONE		guifg=White			guibg=#110022
+	hi StatusLineNC	gui=NONE		guifg=Yellow		guibg=blue
+
+	hi Visual    	gui=NONE		guifg=White			guibg=#00aa33		
+	hi Search      	gui=BOLD		guibg=Yellow		guifg=DarkBlue
+	hi VertSplit   	gui=NONE		guifg=White			guibg=#666666
+	hi Directory   	gui=NONE		guifg=Green			guibg=#110022
+	hi WarningMsg  	gui=STANDOUT	guifg=#0000cc		guibg=Yellow
+	hi Error       	gui=NONE		guifg=White			guibg=Red
+	hi Cursor      	gui=BOLD		guifg=White			guibg=#00ff33
+	hi LineNr      	gui=NONE		guifg=#d19fe8		guibg=#334444
+
+	"the box at bottom left showing mode
+	hi ModeMsg     	gui=NONE		guifg=Blue			guibg=White
+	hi Question    	gui=NONE		guifg=#66ff99		guibg=#110022
+	hi Operator		gui=NONE		guifg=#979445		guibg=#110022
+	hi character   	gui=NONE		guifg=#979445		guibg=#110022
+	hi lCursor     	gui=NONE		guibg=Purple		guifg=Yellow  
+
+	"icursor bg is the look during insert mode while the set command is the thickness
+	hi ICursor		gui=NONE		guibg=#00ff33		guifg=Blue 
+
+	"Cursorline changes line apearance
+	hi CursorLine	guibg=#1b0036    
+
+	hi CursorIM		gui=NONE		guibg=Red			guifg=Cyan
+
+	"	Duplicate, delete one or the other on 470
+	hi PreProc		guifg=Yellow
+
+	hi structure    gui=BOLD		guifg=#73b6c7
+
+	" Use Unix as the standard file type
+	set ffs=unix,dos,mac
+	" 
+	" end GUI color settings
+" else
+	"non-gui scheme
+	" Terminal window - color scheme Settings
+	" 
+
+	"Terminal, simplified color, 16bit
+	hi Normal       term=NONE cterm=NONE ctermfg=LightGray   ctermbg=Black
+	hi NonText      term=NONE cterm=NONE ctermfg=Brown       ctermbg=Black
+	hi Function     term=NONE cterm=NONE ctermfg=DarkCyan    ctermbg=Black
+	hi Statement    term=BOLD cterm=BOLD ctermfg=DarkBlue    ctermbg=Black
+	hi Special      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
+	hi SpecialChar  term=NONE cterm=NONE ctermfg=Cyan        ctermbg=Black
+	hi Constant     term=NONE cterm=NONE ctermfg=Blue        ctermbg=Black
+	hi Comment      term=NONE cterm=NONE ctermfg=DarkGray    ctermbg=Black
+	hi Preproc      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
+	hi Type         term=NONE cterm=NONE ctermfg=DarkMagenta ctermbg=Black
+	hi Identifier   term=NONE cterm=NONE ctermfg=Cyan        ctermbg=Black
+	hi StatusLine   term=BOLD cterm=NONE ctermfg=Yellow      ctermbg=DarkBlue
+	hi StatusLineNC term=NONE cterm=NONE ctermfg=Black       ctermbg=Gray
+	hi Visual       term=NONE cterm=NONE ctermfg=White       ctermbg=DarkCyan
+	hi Search       term=NONE cterm=NONE ctermbg=Yellow      ctermfg=DarkBlue
+	hi VertSplit    term=NONE cterm=NONE ctermfg=Black       ctermbg=Gray
+	hi Directory    term=NONE cterm=NONE ctermfg=Green       ctermbg=Black
+	hi WarningMsg   term=NONE cterm=NONE ctermfg=Blue        ctermbg=Yellow
+	hi Error        term=NONE cterm=NONE ctermfg=DarkRed     ctermbg=Gray
+	hi Cursor                            ctermfg=Black       ctermbg=Cyan
+	hi LineNr       term=NONE cterm=NONE ctermfg=Red         ctermbg=Black
+	" 
+	"	end terminal window settings
+" endif
+" color_End
+" 
+"	}}}
 
 
-hi Normal      	gui=NONE		guifg=#fbcce7		guibg=#110022
-hi boolean      gui=BOLD		guifg=#bf94e4
-
-hi NonText     	gui=NONE		guifg=#ff9999		guibg=#444444
-hi Function    	gui=NONE		guifg=#7788ff		guibg=#110022
-hi Statement   	gui=BOLD		guifg=#b8860b		guibg=#110022
-hi label		gui=BOLD		guifg=#b8860b		guibg=#110022
-
-hi Special     	gui=NONE		guifg=Cyan			guibg=#110022
-hi Constant    	gui=NONE		guifg=#a09aab		guibg=#110022
-hi Comment     	gui=NONE		guifg=#d19fe8		guibg=#110022
-hi Preproc     	gui=NONE		guifg=#33ff66		guibg=#110022
-hi Type        	gui=NONE		guifg=#73b6c7		guibg=#110022
-hi Identifier  	gui=NONE		guifg=Cyan			guibg=#110022
-hi StatusLine  	gui=NONE		guifg=White			guibg=#110022
-hi StatusLineNC	gui=NONE		guifg=Yellow		guibg=blue
-
-hi Visual    	gui=NONE		guifg=White			guibg=#00aa33		
-hi Search      	gui=BOLD		guibg=Yellow		guifg=DarkBlue
-hi VertSplit   	gui=NONE		guifg=White			guibg=#666666
-hi Directory   	gui=NONE		guifg=Green			guibg=#110022
-hi WarningMsg  	gui=STANDOUT	guifg=#0000cc		guibg=Yellow
-hi Error       	gui=NONE		guifg=White			guibg=Red
-hi Cursor      	gui=BOLD		guifg=White			guibg=#00ff33
-hi LineNr      	gui=NONE		guifg=#d19fe8		guibg=#334444
-
-"the box at bottom left showing mode
-hi ModeMsg     	gui=NONE		guifg=Blue			guibg=White
-hi Question    	gui=NONE		guifg=#66ff99		guibg=#110022
-hi Operator		gui=NONE		guifg=#979445		guibg=#110022
-hi character   	gui=NONE		guifg=#979445		guibg=#110022
-hi lCursor     	gui=NONE		guibg=Purple		guifg=Yellow  
-
-"icursor bg is the look during insert mode while the set command is the thickness
-hi ICursor		gui=NONE		guibg=#00ff33		guifg=Blue 
-
-"Cursorline changes line apearance
-hi CursorLine	guibg=#1b0036    
-
-hi CursorIM		gui=NONE		guibg=Red			guifg=Cyan
-
-"	Duplicate, delete one or the other on 470
-hi PreProc		guifg=Yellow
-
-hi structure    gui=BOLD		guifg=#73b6c7
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-" }}}
-" end GUI color settings
-
-"color_End
-" }}}
-
-
-"".05"""""""""""Files_Backups_Undo""""""""""""""""""""
-" Files_Backups_Undo_I: 	 
+""*.05*"""""""""Files_Backups_Undo""""""""""""""""""""
+"	Files_Backups_Undo_I: 	 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Files_Backups_Undo_C: {{{
+"	Files_Backups_Undo_C:	
+"	{{{ 
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 "set nobackup
 "set nowb
 "set noswapfile
+" 
 " }}}
 
 
-"".06"""""""""""VISUAL_MODE"""""""""""""""""""""""""""
+""*.06*"""""""""VISUAL_MODE"""""""""""""""""""""""""""
 "	Visual_Mode_I:
 	 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Visual_Mode_C:  {{{
+"	Visual_Mode_C:	
+"	{{{ 
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 " vnoremap <silent> * :call VisualSelection('f')<CR>
 " vnoremap <silent> # :call VisualSelection('b')<CR>
-" }}}
+" 
+"	}}}
 
 
-"".07"""""""""""MOVING_AROUND"""""""""""""""""""""""""
-" Moving_Around_I: {{{
+""*.07*"""""""""MOVING_AROUND"""""""""""""""""""""""""
+"	Moving_Around_I: 
+"	{{{
 
 "	Tabs_Windows_Marks_TODO_Buffers
 
@@ -642,16 +658,17 @@ set ffs=unix,dos,mac
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Moving_Around_C: {{{
+"	Moving_Around_C:	
+"	{{{ 
 
 " type za to fold and unfold the below
 
-" Vimscript file settings ---------------------- {{{
+" Vimscript file settings ---------------------- 
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-" }}}
+" 
 
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -704,74 +721,95 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-" }}}
+" 
+"	}}}
 
 
-"".08"""""""""""STATUS_LINE"""""""""""""""""""""""""""
+""*.08*"""""""""STATUS_LINE"""""""""""""""""""""""""""
 "	Status_Line_I:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Status_Line_C:	{{{
+"	Status_Line_C:	
+"	{{{	
 	
 " Always show the status line
 set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-" }}}
+" 
+"	}}}
 
 
-"".09"""""""""""MAPPINGS""""""""""""""""""""""""""""""
+""*.09*"""""""""MAPPINGS""""""""""""""""""""""""""""""
 "	Mappings_I:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Mappings_C: {{{
+"	Mappings_C:		
+"	{{{
 
 "maps -> to .. just because it is easier for me
-:ab .. ->
+" :ab .. ->
 
 "These let use define boxed comments with ease. By typing "#b" we type the top of a boxed comment. Typing "#e" types the bottom line. (We put the ^V^H^V^H in the file to backup over the comment leader.) 
-:ab #b /****************************************
-:ab #e ^V^H*****************************************/
-:ab #h /******************** Name **************************************<CR>removeLL<CR>Purpose:<CR>    Simple Description<CR>Parameters:<CR><TAB>Use I, O, IO, IOMOD and a simple description<CR>Notes:<CR><TAB>explain special cases, concerns, procedured, etc<CR><TAB><CR><TAB><CR>Return value:<CR><TAB>info on return values, pasby reference vaules<CR>Called From:<CR><Tab>provide function name and file name providing easy access to preceding code<CR>**************************************************************************/<CR><up>
+" :ab #b /****************************************
+" :ab #e ^V^H*****************************************/
+" :ab #h /******************** Name **************************************<CR>removeLL<CR>Purpose:<CR>    Simple Description<CR>Parameters:<CR><TAB>Use I, O, IO, IOMOD and a simple description<CR>Notes:<CR><TAB>explain special cases, concerns, procedured, etc<CR><TAB><CR><TAB><CR>Return value:<CR><TAB>info on return values, pasby reference vaules<CR>Called From:<CR><Tab>provide function name and file name providing easy access to preceding code<CR>**************************************************************************/<CR><up>
 
 
 "adds a save and close to <F9>
+"	{{{
 nnoremap <F9> :w<CR>:x<CR>
 inoremap <F9> <ESC>:w<CR>:x<CR>
 vnoremap <F9> <ESC>:w<CR>:x<CR>
+"	}}}
+
 
 "sets Alt +RightMouse:tagnext -> Enter
 "the <C-o> returns to previsous mode
+"	{{{	
 nnoremap <C-LeftMouse> :tn<CR>
 inoremap <C-LeftMouse> <C-o>:tn<CR>
 vnoremap <C-LeftMouse> <C-o>:tn<CR>
+"	}}}
+
 
 "Sets Alt+LeftMouse to :prevtag ->Enter
 "the <C-o> returns to previsous mode
+"	{{{
 nnoremap <C-RightMouse> :tp<CR>
 inoremap <C-RightMouse> <C-o>:tp<CR>
 vnoremap <C-RightMouse> <C-o>:tp<CR>
+"	}}}
 
 
 "save sequence of esc :w mapped to F5. This ensures: no accidental :w inserted
 "into code and that save occurs
+"	{{{
 "nnoremap <F5>  :w<CR>
 "inoremap <F5>  <C-o>:w<CR>
 "vnoremap <F5>  <C-o>:w<CR>
+"	}}}
+
 
 "creates a paste/put option that esc back to command mode and inserts using p
+"	{{{
 nnoremap <A-p> ]p
 inoremap <A-p> <C-o>]p
 vnoremap <A-p> <C-o>]p
+"	}}}
+
 
 "creates undo for insert and visual mode.
+"	{{{
 nnoremap <A-u> u
 inoremap <A-u> <C-o>u
 vnoremap <A-u> <C-o>u
+"	}}}
 
 
 "maps find tag at cursor to F4 and return to last postition to F3 for all modes
+"	{{{
 nnoremap <F4> <C-o><C-]>
 inoremap <F4> <C-o><C-]>
 vnoremap <F4> <C-o><C-]>
@@ -780,28 +818,37 @@ nnoremap <F3> <C-o><C-t>
 inoremap <F3> <C-o><C-t>
 vnoremap <F3> <C-o><C-t>
 noremap <F3> <C-o><C-t>
+"	}}}
+
 
 "middle mouse now saves, created due to lab having crappy mice
+"	{{{
 nnoremap <MiddleMouse> :w<CR>
 inoremap <MiddleMouse> <C-o>:w<CR>
 cmap <MiddleMouse> :w<CR>
+"	}}}
+
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
+func! DeleteTrailingWS()	" {{{
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+" 
+"	}}}
 " }}}
 
 
-"".10"""""""""""VIMGREP_SEARCH""""""""""""""""""""""""
-"  Vimgrep_Search_I: {{{
+""*.10*"""""""""VIMGREP_SEARCH""""""""""""""""""""""""
+"	Vimgrep_Search_I: 
+"	{{{
 "	 
 
 "	ctrl-n command, that will attempt to complete the word under the cursor
@@ -813,10 +860,11 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 "	To search for partial matches, you can use the "g*" and "g#" key
 "	sequence. 
-" }}}
+"	}}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Vimgrep_Search_C:  {{{
+"	Vimgrep_Search_C:	
+"	{{{  
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
@@ -845,14 +893,16 @@ map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
-" }}}
+" 
+"	}}}
 
 
-"".11"""""""""""SPELL_CHECK"""""""""""""""""""""""""""
-"  Spell_Check_I:
+""*.11*"""""""""SPELL_CHECK"""""""""""""""""""""""""""
+"	Spell_Check_I:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Spell_Check_C:  {{{
+"	Spell_Check_C:	
+"	{{{ 
 
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
@@ -862,14 +912,16 @@ map <leader>ss :setlocal spell!<cr>
 "map <leader>sp [s
 "map <leader>sa zg
 "map <leader>s? z=
-" }}}
+" 
+"	}}}
 
 
-"".12"""""""""""MISC""""""""""""""""""""""""""""""""""
-" Misc_I:
+""*.12*"""""""""MISC""""""""""""""""""""""""""""""""""
+"	Misc_I:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Misc_C:  {{{
+"	Misc_C:		
+"	{{{ 
 
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
@@ -879,26 +931,28 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-" }}}
+" 
+"	}}}
 
 
-"".13"""""""""""HELPER_FUNCTIONS""""""""""""""""""""""
-" Helper_Functions_I:
+""*.13*"""""""""HELPER_FUNCTIONS""""""""""""""""""""""
+"	Helper_Functions_I:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"	Helper_Functions_C:
+"	Helper_Functions_C:	
+"	{{{
 
-function! CmdLine(str)
+function! CmdLine(str)	" {{{
 
 	exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
 	
-endfunction
+endfunction		" }}}
 
 
-function! VisualSelection(direction) range
-"     {{{
+function! VisualSelection(direction) range	"	{{{
+"     
 	let l:saved_reg = @"
     execute "normal! vgvy"
 
@@ -917,19 +971,18 @@ function! VisualSelection(direction) range
 
     let @/ = l:pattern
     let @" = l:saved_reg
-" }}}
-endfunction
+" 
+endfunction		" }}}
 
-
-" Returns true if paste mode is enabled
+" Returns true if paste mode is enabled		{{{
 function! HasPaste()
 	if &paste
         return 'PASTE MODE  '
     en
     return ''
-endfunction
+endfunction		" }}}
 
-" Don't close window, when deleting a buffer
+" Don't close window, when deleting a buffer	{{{
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
 	let l:currentBufNum = bufnr("%")
@@ -947,8 +1000,8 @@ function! <SID>BufcloseCloseIt()
    if buflisted(l:currentBufNum)
      execute("bdelete! ".l:currentBufNum)
    endif
-endfunction
-
+endfunction		" }}}
+"	}}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
