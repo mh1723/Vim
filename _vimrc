@@ -145,7 +145,7 @@ call plug#end()            " required line
 " For linux
 " runtime path so vim searches the .vim/
 "	runtime! plugin/**/*.vim
-" 
+" 	This should work and is platform/plugin agnostic: fnamemodify(expand("$MYVIMRC"), ":p:h")
 
 "	set runtimepath=~/vimfiles/
 
